@@ -1,0 +1,46 @@
+use BDPEDIDOS2
+create table tbVendendor
+(
+VEN_CODIGO int not null primary key identity,
+VEN_NOME varchar (50) not null,
+VEN_CPF char(14) not null unique
+)
+
+create table tbSecao 
+(
+SEC_CODIGO int not null primary key identity,
+SEC_NOME varchar(50) not null
+)
+
+create table tbCliente
+(
+CLI_CODIGO int not null primary key identity,
+CLI_NOME varchar(50) not null,
+CLI_CPF char(14) not null unique,
+CLI_RUA varchar(50) not null,
+CLI_NUMERO int not null, 
+CLI_BAIRRO varchar(50) not null,
+CLI_SEXO char(10) not null,
+)
+
+create table tbProduto
+(
+PRO_CODIGO int not null primary key identity,
+PRO_NOME varchar(25) not null,
+PRO_QTDE int not null,
+PRO_UNIDADE varchar(5) not null,
+PRO_PRECO_UNIT decimal(7,2) not null,
+SEC_CODIGO int not null foreign key references tbSecao(SEC_CODIGO),
+)
+
+create table tbPedido
+(
+PED_CODIGO int not null primary key identity,
+PED_NUMERO int not null,
+PED_DATA varchar(10) not null,
+
+)
+
+
+
+
