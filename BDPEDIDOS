@@ -51,5 +51,28 @@ create table tbPedido
 	)
 
 
+create table tbPedidoProduto 
+(
+PEP_CODIGO int not null primary key identity,
+PEP_QTDE int not null,
+PEP_PRECO_UNIT	decimal (7,2) not null,
+PED_CODIGO int not null foreign key references tbPedido(PED_CODIGO) on delete cascade,
+PRO_CODIGO int not null foreign key references tbProduto(PRO_CODIGO),
+)
+
+alter table tbSecao
+add SEC_SIGLA varchar(5) null,
+    sec_numero int null
+
+
+alter table tbSecao
+alter column sec_sigla varchar(7) null
+
+
+alter table tbSecao
+drop column sec_numero
+
+
+
 
 
