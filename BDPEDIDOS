@@ -72,6 +72,9 @@ alter column sec_sigla varchar(7) null
 alter table tbSecao
 drop column sec_numero
 
+alter table tbCliente
+drop constraint UQ__tbClient__CB3788A8FF3F3999
+
 
 
 
