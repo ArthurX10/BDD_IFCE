@@ -41,6 +41,15 @@ PED_DATA varchar(10) not null,
 
 )
 
+create table tbPedido
+	(
+	PED_CODIGO int not null primary key identity,
+	PED_NUMERO int not null,
+	PED_DATA varchar(10) not null,
+	CLI_CODIGO int not null foreign key references tbCliente(CLI_CODIGO),
+	VEN_CODIGO int not null foreign key references tbVendendor(VEN_CODIGO), 
+	)
+
 
 
 
