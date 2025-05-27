@@ -75,6 +75,9 @@ drop column sec_numero
 alter table tbCliente
 drop constraint UQ__tbClient__CB3788A8FF3F3999
 
+ALTER TABLE tbCliente // apagar uma chave unique constraints
+DROP CONSTRAINT UQ__tbClient__CLI_CPF;
+
 
 
 
