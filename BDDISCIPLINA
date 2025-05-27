@@ -1,0 +1,48 @@
+use BDDISCIPLINA
+create table tbDisciplina
+(
+dis_codigo  int not null primary key identity,
+dis_nome varchar (50) not null,
+dis_sigla varchar(5) null,
+)
+
+create table tbCurso
+(
+cur_codigo int not null, 
+cur_nome varchar(50) not null,
+
+)
+
+alter table tbDisciplina
+add dis_carga_horario int not null,
+	cur_codigo int not null;
+
+
+
+
+alter table tbCurso
+alter column cur_nome varchar(50) not null
+
+alter table tbDisciplina
+drop column dis_sigla
+
+alter table tbCurso 
+add constraint pk_cur_codigo primary key(cur_codigo)
+
+alter table tbDisciplina 
+add constraint fk_cur_codigo foreign key(cur_codigo) references tbCurso (cur_codigo)
+
+alter table tbCurso 
+add constraint uk_cur_nome unique(cur_nome) 
+
+alter table tbCurso
+drop constraint cur_carga_horaria
+
+alter table tbDisciplina 
+drop constraint fk_cur_codigo
+
+drop table tbCurso
+
+
+
+
